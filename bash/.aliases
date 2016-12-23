@@ -54,3 +54,12 @@ alias gs="git status -s"
 alias findpy='ag -G ".*(py|ipynb)$"'
 
 
+function shape2geojson()
+{
+	fio cat $1 | fio collect > $2
+}
+
+function g2shape()
+{
+	cat $1 | fio load --format Shapefile --no-sequence $2
+}
