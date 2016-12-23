@@ -1,12 +1,12 @@
-for file in ~/.{path,bash_prompt,exports,aliases,functions,extra}; do
+for file in ~/.{path,bash_prompt,exports,aliases,bash_aliases,functions,extra}; do
 	[ -r "$file" ] && [ -f "$file" ] && source "$file"
 done
 unset file
 
 shopt -s histappend
 
-HISTSIZE=10000
-HISTFILESIZE=80000
+HISTSIZE=
+HISTFILESIZE=
 
 export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
 
@@ -28,6 +28,13 @@ export LD_LIBRARY_PATH=/Users/gerke/torch/install/lib:$LD_LIBRARY_PATH  # Added 
 export DYLD_LIBRARY_PATH=/Users/gerke/torch/install/lib:$DYLD_LIBRARY_PATH  # Added automatically by torch-dist
 
 source ~/.aws/export_credentials.sh
-export GDAL_DATA=/usr/local/share/gdal
+export GDAL_DATA=/usr/local/Cellar/gdal-20/2.1.0/share/gdal
 
-export EDITOR=vim
+export EDITOR=nvim
+
+export PYTHONPATH=/Users/gerke/dev/objectdetection
+
+export HOMEBREW_GITHUB_API_TOKEN=3b9f02e948e7c6f879df720e59c70aadc435c43f 
+
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
